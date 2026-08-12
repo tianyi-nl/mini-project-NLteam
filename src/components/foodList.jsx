@@ -1,5 +1,6 @@
 import FoodData from "../assets/food.json";
 import "./FoodList.css";
+import { useState } from "react";
 
 function getCaloriesLabel(calNum) {
   if (calNum <= 250) {
@@ -11,11 +12,18 @@ function getCaloriesLabel(calNum) {
   }
 }
 
-
 function FoodList() {
+  const [favList, setFavList] = useState(FoodData);
+  const handelRemoveFromList = (index) => {
+    const clone = [...favList];
+    clone.splice(index, 1);
+
+    setFavList(clone);
+  };
+
   return (
     <div>
-      {FoodData.map((recipe) => {
+      {favList.map((recipe, index) => {
         return (
           <div className="list-card" key={recipe.id}>
             <img src={recipe.image} alt={recipe.name} />
@@ -24,6 +32,9 @@ function FoodList() {
               <p>{recipe.calories}</p>
               <p>{recipe.servings}</p>
               <div className="label">{getCaloriesLabel(recipe.calories)}</div>
+              <button onClick={() => handelRemoveFromList(index)}>
+                delete
+              </button>
             </div>
           </div>
         );
