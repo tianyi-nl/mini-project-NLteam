@@ -10,7 +10,8 @@ function App() {
       <div className="app-body">
         <Sidebar />
         <main className="app-content">
-          <p>main page will go here </p>
+          
+            <foodList />
         </main>
       </div>
       <Footer />
