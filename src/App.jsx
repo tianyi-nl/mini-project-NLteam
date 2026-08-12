@@ -1,6 +1,7 @@
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
+import FoodList from "./components/FoodList";
 import "./index.css"
 
 function App() {
@@ -10,8 +11,7 @@ function App() {
       <div className="app-body">
         <Sidebar />
         <main className="app-content">
-          
-            <foodList />
+            <FoodList />
         </main>
       </div>
       <Footer />
