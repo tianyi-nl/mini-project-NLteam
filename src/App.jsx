@@ -1,7 +1,7 @@
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
-import FoodList from "./components/FoodList";
+import FoodList from "./pages/FoodList";
 import "./index.css"
 import { Routes, Route} from "react-router-dom"
 import DetailsPage from "./pages/DetailsPage"

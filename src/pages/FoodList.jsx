@@ -28,11 +28,11 @@ function FoodList() {
     <div>
       {favList.map((recipe, index) => {
         return (
-          <Link to={`/recipe/${recipe.id}`} className="card-link">
+         
           <div className="list-card" key={recipe.id}>
             <img src={recipe.image} alt={recipe.name} />
             <div>
-              <h2>{recipe.name}</h2>
+             <Link to={`/recipe/${recipe.id}`} className="card-link"> <h2>{recipe.name}</h2></Link>
               <p>{recipe.calories}</p>
               <p>{recipe.servings}</p>
               <div className="label">{getCaloriesLabel(recipe.calories)}</div>
@@ -41,7 +41,7 @@ function FoodList() {
               </button>
             </div>
           </div>
-          </Link>
+         
         );
       })}
     </div>
