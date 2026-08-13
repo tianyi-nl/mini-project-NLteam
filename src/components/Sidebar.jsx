@@ -1,15 +1,15 @@
 import { NavLink } from "react-router-dom";
-
+import { Link } from "react-router-dom"
 
 function Sidebar() {
   return (
     <aside>
       <ul>
         <li>
-          <NavLink to="/">Home</NavLink>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <NavLink to="/about">About</NavLink>
+          <Link to="/about">About</Link>
         </li>
       </ul>
     </aside>
