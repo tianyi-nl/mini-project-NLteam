@@ -15,6 +15,7 @@ function App() {
       <div className="app-body">
         <Sidebar />
         <main className="app-content">
+
          <Routes>
             <Route path="/" element={<FoodList />} />
             <Route path="/about" element={<About />} />
@@ -27,5 +28,6 @@ function App() {
   );
 }
 import { Form } from "react-router-dom";
+import AddRecipeForm from "./components/AddRecipeForm";
 
 export default App;

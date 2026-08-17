@@ -2,6 +2,7 @@ import FoodData from "../assets/food.json";
 import "./FoodList.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import AddRecipeForm from "../components/AddRecipeForm";
 
 function getCaloriesLabel(calNum) {
   if (calNum <= 250) {
@@ -23,9 +24,14 @@ function FoodList() {
     setFavList(clone);
   };
 
+  function handleAddRecipe(newRecipe) {
+  setFavList([...favList, newRecipe]);
+}
+
   return (
     
     <div>
+      <AddRecipeForm onAdd={handleAddRecipe} />
       {favList.map((recipe, index) => {
         return (
          
