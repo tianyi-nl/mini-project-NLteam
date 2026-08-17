@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import "./AddRecipeForm.css";
 
 function AddRecipeForm({onAdd}) {
   const [newName, setNewName] = useState("");
@@ -27,7 +28,7 @@ function AddRecipeForm({onAdd}) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="recipe-form" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Recipe name"

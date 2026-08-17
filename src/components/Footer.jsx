@@ -1,6 +1,8 @@
+import "./Footer.css";
+
 function Footer() {
   return (
-    <footer>
+    <footer className="footer">
       <a
         href="https://github.com/tianyi-nl/mini-project-NLteam"
         rel="noreferrer"

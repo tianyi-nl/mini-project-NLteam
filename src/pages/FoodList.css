@@ -1,26 +1,81 @@
 .list-card {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 1rem;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  gap: 1.5rem;
+  padding: 1.25rem;
   margin-bottom: 1rem;
+  background-color: white;
+  border: 1px solid #e5e1dc;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.list-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
 }
 
 .list-card img {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.list-card h2 {
+  margin: 0 0 0.75rem;
+}
+
+.list-card p {
+  margin: 0.3rem 0;
+  color: #666;
+}
+
+.card-link {
+  text-decoration: none;
+  color: #333;
+}
+
+.card-link:hover {
+  color: #d9480f;
 }
 
 .label {
   display: inline-block;
-  margin-top: 0.5rem;
-  padding: 0.25rem 0.6rem;
-  border-radius: 12px;
+  margin-top: 0.75rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 20px;
   font-size: 0.85rem;
   font-weight: 600;
-  background-color: #eee;
+  background-color: #f1f1f1;
+}
+
+.list-card button {
+  margin-top: 1rem;
+  padding: 0.5rem 0.9rem;
+  border: 1px solid #e0b5a7;
+  border-radius: 7px;
+  background-color: white;
+  color: #c0392b;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.list-card button:hover {
+  background-color: #c0392b;
+  color: white;
+}
+
+@media (max-width: 700px) {
+  .list-card {
+    align-items: flex-start;
+  }
+
+  .list-card img {
+    width: 90px;
+    height: 90px;
+  }
 }

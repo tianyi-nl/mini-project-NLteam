@@ -1,9 +1,9 @@
-import { NavLink } from "react-router-dom";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import "./Sidebar.css";
 
 function Sidebar() {
   return (
-    <aside>
+    <aside className="sidebar">
       <ul>
         <li>
           <Link to="/">Home</Link>
