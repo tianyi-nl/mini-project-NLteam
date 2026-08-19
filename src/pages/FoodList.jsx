@@ -1,6 +1,6 @@
 import FoodData from "../assets/food.json";
 import "./FoodList.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AddRecipeForm from "../components/AddRecipeForm";
 
@@ -15,30 +15,36 @@ function getCaloriesLabel(calNum) {
 }
 
 function FoodList() {
-  const [favList, setFavList] = useState(FoodData);
-  
+  const [favList, setFavList] = useState(() => {
+    const saved = localStorage.getItem("recipes");
+    return saved ? JSON.parse(saved) : FoodData;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("recipes", JSON.stringify(favList));
+  }, [favList]);
+
   const handelRemoveFromList = (index) => {
     const clone = [...favList];
     clone.splice(index, 1);
-
     setFavList(clone);
   };
 
   function handleAddRecipe(newRecipe) {
-  setFavList([...favList, newRecipe]);
-}
+    setFavList([...favList, newRecipe]);
+  }
 
   return (
-    
     <div>
       <AddRecipeForm onAdd={handleAddRecipe} />
       {favList.map((recipe, index) => {
         return (
-         
           <div className="list-card" key={recipe.id}>
             <img src={recipe.image} alt={recipe.name} />
             <div>
-             <Link to={`/recipe/${recipe.id}`} className="card-link"> <h2>{recipe.name}</h2></Link>
+              <Link to={`/recipe/${recipe.id}`} className="card-link">
+                <h2>{recipe.name}</h2>
+              </Link>
               <p>{recipe.calories}</p>
               <p>{recipe.servings}</p>
               <div className="label">{getCaloriesLabel(recipe.calories)}</div>
@@ -47,11 +53,9 @@ function FoodList() {
               </button>
             </div>
           </div>
-         
         );
       })}
     </div>
-      
   );
 }
 
